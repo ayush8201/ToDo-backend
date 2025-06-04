@@ -6,7 +6,10 @@ const userRoutes = require("./routes/user");
 const cors = require("cors");
 const app = express();
 dotenv.config();
-app.use(cors());
+app.use(cors({
+  origin: 'https://to-do-frontend-ivory-mu.vercel.app',
+  credentials: true // if you’re using cookies or auth headers
+}));
 conn();
 
 app.use(express.json());
