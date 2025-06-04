@@ -20,6 +20,7 @@ app.use(cors({
 // Handle preflight requests
 app.options('*', cors());
 
+// Initialize database connection
 conn();
 
 app.use(express.json());
@@ -31,8 +32,6 @@ app.use("/api/user", userRoutes);
 
 app.get("/", (req, res) => res.send("running fine backend"));
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
-});
-
+// Remove the listen call as it's not needed for serverless functions
+// Export the Express app
 module.exports = app;
