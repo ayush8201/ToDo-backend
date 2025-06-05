@@ -8,7 +8,9 @@ const app = express();
 dotenv.config();
 app.use(cors({
   origin: 'https://to-do-frontend-ivory-mu.vercel.app',
-  credentials: true // if you’re using cookies or auth headers
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+   // if you’re using cookies or auth headers
 }));
 conn();
 
